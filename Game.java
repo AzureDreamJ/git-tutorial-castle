@@ -1,6 +1,9 @@
 /*
  * 网易云课堂-->Java应用基础：设计篇-->第4章、设计原则-->4.1、城堡游戏-->文档26.城堡游戏
+ * 网易云课堂-->Java应用基础：设计篇-->第4章、设计原则-->4.2、消除代码复制-->视频30.消除代码复制
  */
+
+
 
 
 
@@ -44,17 +47,7 @@ public class Game {
         System.out.println("这是一个超级无聊的游戏。");
         System.out.println("如果需要帮助，请输入 'help' 。");
         System.out.println();
-        System.out.println("现在你在" + currentRoom);
-        System.out.print("出口有：");
-        if(currentRoom.northExit != null)
-            System.out.print("north ");
-        if(currentRoom.eastExit != null)
-            System.out.print("east ");
-        if(currentRoom.southExit != null)
-            System.out.print("south ");
-        if(currentRoom.westExit != null)
-            System.out.print("west ");
-        System.out.println();
+        showPrompt();
     }
 
     // 以下为用户命令
@@ -86,18 +79,22 @@ public class Game {
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("你在" + currentRoom);
-            System.out.print("出口有: ");
-            if(currentRoom.northExit != null)
-                System.out.print("north ");
-            if(currentRoom.eastExit != null)
-                System.out.print("east ");
-            if(currentRoom.southExit != null)
-                System.out.print("south ");
-            if(currentRoom.westExit != null)
-                System.out.print("west ");
-            System.out.println();
+            showPrompt();
         }
+    }
+    
+    public void showPrompt() {
+    	System.out.println("你在" + currentRoom);
+        System.out.print("出口有: ");
+        if(currentRoom.northExit != null)
+            System.out.print("north ");
+        if(currentRoom.eastExit != null)
+            System.out.print("east ");
+        if(currentRoom.southExit != null)
+            System.out.print("south ");
+        if(currentRoom.westExit != null)
+            System.out.print("west ");
+        System.out.println();
     }
 	
 	public static void main(String[] args) {
